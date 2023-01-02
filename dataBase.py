@@ -111,9 +111,9 @@ class DB:
 
     def get_user_by_table_id(self, id):
         self.c.execute('SELECT tg_id FROM users WHERE id = ?', (id,))
-        res = self.c.fetchone()[0]
+        res = self.c.fetchone()
         if res:
-            return res
+            return res[0]
         else:
             return []
 
